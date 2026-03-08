@@ -3,7 +3,7 @@
 *.log
 tmp/
 *.swp
-
+__*__/
 config/**/*
 !config/.gitkeep
 
