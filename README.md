@@ -106,7 +106,7 @@ This requires having a gmail account and a corresponding app-password (you can u
 
 If using nginx reverse proxy for https, set the following in `variables.env` file. It assumes that you have `nginx` running and an SSL certificate issued already which is configured to be used in `/etc/nginx/nginx.conf`.
 
-Make foolowing changes to `variables.env`
+Make following changes to `variables.env`
 ```
 OVERLEAF_BEHIND_PROXY=true
 OVERLEAF_SECURE_COOKIE=true
