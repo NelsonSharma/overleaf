@@ -51,7 +51,7 @@ These are the three configuration files you will interact with:
 
 
 - `version` : the version of the (sharelatex) docker images to use
-    - `6.1.1`
+    - `6.1.2`
 
 
 ## (3) Launch and install full latex
@@ -104,7 +104,9 @@ This requires having a gmail account and a corresponding app-password (you can u
 
 ## (7) Reverse Proxy
 
-If using nginx reverse proxy for https, set the following in `variables.env` file
+If using nginx reverse proxy for https, set the following in `variables.env` file. It assumes that you have `nginx` running and an SSL certificate issued already which is configured to be used in `/etc/nginx/nginx.conf`.
+
+Make foolowing changes to `variables.env`
 ```
 OVERLEAF_BEHIND_PROXY=true
 OVERLEAF_SECURE_COOKIE=true
@@ -155,15 +157,15 @@ server {
 If you want to create a custom version of `sharelatex` image with full latex installed in it, use the `dockerfile`:
 
 ```dockerfile
-FROM sharelatex/sharelatex:6.1.1
+FROM sharelatex/sharelatex:6.1.2
 RUN tlmgr update --self && tlmgr install scheme-full
 ```
 
 Build your image using
 ```sh
-docker build -t sharelatex/sharelatex:6.1.1 .
+docker build -t sharelatex/sharelatex:6.1.2 .
 ```
-If you change the custom image name from `sharelatex/sharelatex:6.1.1` to anything else then make sure to change the same in `overleaf.rc` file as follows: 
+If you change the custom image name from `sharelatex/sharelatex:6.1.2` to anything else then make sure to change the same in `overleaf.rc` file as follows: 
 ```sh
 OVERLEAF_IMAGE_NAME=<new_image_name>
 ```
@@ -171,7 +173,7 @@ OVERLEAF_IMAGE_NAME=<new_image_name>
 You can also save a `tar` version of the new image
 
 ```sh
-docker save sharelatex/sharelatex:6.1.1 > sharelatex-full.tar
+docker save sharelatex/sharelatex:6.1.2 > sharelatex-full.tar
 ```
 
 and load it later using
@@ -212,6 +214,6 @@ db.users.countDocuments()
 
 
 ## Updates
-For more info and updates, check the original overleaf [github page](https://github.com/overleaf/overleaf)
+For more info and updates, check the original overleaf [github page](https://github.com/overleaf/toolkit)
 
 ---
