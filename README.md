@@ -217,7 +217,7 @@ For more info and updates, check the original overleaf [github page](https://git
 ## Backups
 
 ```sh
-mkdir backup
+bin/docker-compose exec sharelatex /bin/bash -ce "mkdir /var/lib/overleaf/data/exports"
 ```
 
 ```sh
