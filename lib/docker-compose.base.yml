@@ -2,7 +2,7 @@
 services:
 
     sharelatex:
-        restart: always
+        restart: unless-stopped
         image: "${IMAGE}"
         container_name: sharelatex
         volumes:

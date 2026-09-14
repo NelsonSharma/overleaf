@@ -2,7 +2,7 @@
 services:
 
     git-bridge:
-        restart: always
+        restart: unless-stopped
         image: "${GIT_BRIDGE_IMAGE}"
         volumes:
             - "${GIT_BRIDGE_DATA_PATH}:/data/git-bridge"

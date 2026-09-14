@@ -2,7 +2,7 @@
 services:
 
     mongo:
-        restart: always
+        restart: unless-stopped
         image: "${MONGO_DOCKER_IMAGE}"
         command: "${MONGO_ARGS}"
         container_name: mongo

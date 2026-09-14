@@ -2,7 +2,7 @@
 services:
 
     redis:
-        restart: always
+        restart: unless-stopped
         image: "${REDIS_IMAGE}"
         volumes:
             - "${REDIS_DATA_PATH}:/data"

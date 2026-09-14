@@ -1,11 +1,12 @@
 .DS_Store
 .idea
+*.sh
 *.log
 tmp/
 *.swp
 __*__/
 config/**/*
 !config/.gitkeep
-
+*.service
 data/**/*
 !data/.gitkeep

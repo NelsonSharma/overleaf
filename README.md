@@ -90,6 +90,7 @@ Rest of the following configurations are optional.
 
 If you want to enable sending emails and invite other users to join your instance, set the following in `variables.env` file
 ```
+OVERLEAF_ADMIN_EMAIL=admin@gmail.com
 OVERLEAF_EMAIL_FROM_ADDRESS=admin@gmail.com
 OVERLEAF_EMAIL_SMTP_HOST=smtp.gmail.com
 OVERLEAF_EMAIL_SMTP_PORT=587
@@ -212,5 +213,25 @@ db.users.countDocuments()
 
 ## Updates
 For more info and updates, check the original overleaf [github page](https://github.com/overleaf/toolkit)
+
+## Backups
+
+```sh
+mkdir backup
+```
+
+```sh
+bin/docker-compose exec sharelatex /bin/bash -ce "source /etc/container_environment.sh && cd /overleaf/services/web && node modules/server-ce-scripts/scripts/export-user-projects.mjs --export-all --output-dir=/var/lib/overleaf/data/exports"
+```
+
+```sh
+bin/docker-compose exec sharelatex /bin/bash -ce "source /etc/container_environment.sh && cd /overleaf/services/web && node modules/server-ce-scripts/scripts/export-user-projects.mjs --user-id ??? --list"
+```
+
+
+```sh
+bin/docker-compose exec sharelatex /bin/bash -ce "source /etc/container_environment.sh && cd /overleaf/services/web && node modules/server-ce-scripts/scripts/export-user-projects.mjs --user-id ??? --output=/var/lib/overleaf/data/exports/leaf.zip"
+```
+
 
 ---
