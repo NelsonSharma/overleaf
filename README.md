@@ -46,9 +46,6 @@ These are the three configuration files you will interact with:
 - `variables.env` : environment variables loaded into the docker container
     - `OVERLEAF_APP_NAME="MyOverLeaf"`
     - `OVERLEAF_NAV_TITLE=My OverLeaf Instance`
-    - `OVERLEAF_ADMIN_EMAIL=admin@gmail.com`
-    - (use the same admin-email mentioned here to create first account when the app starts)
-
 
 - `version` : the version of the (sharelatex) docker images to use
     - `6.1.1`
